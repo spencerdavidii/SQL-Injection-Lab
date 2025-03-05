@@ -10,11 +10,11 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 ### Skills Learned
 [Bullet Points - Remove this afterwards]
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
-- Enhanced knowledge of network protocols and security vulnerabilities.
-- Development of critical thinking and problem-solving skills in cybersecurity.
+- Web Server Log Analysis – Reviewed Apache access/error logs to detect SQL injection attempts and other web-based attacks.
+- Incident Response & Forensics – Investigated SQLi attacks, documented findings, and provided remediation steps.
+- Mitigation & Defense Strategie- Implentmented input validation to prevent SQL attacks in the future. 
+- Secure Coding Awareness – Gained knowledge of secure web development practices to prevent injection vulnerabilities.
+- Followed structured offensive security methodologies (e.g., OWASP Top 10, PTES) to identify and exploit SQLi vulnerabilities.
 
 ### Tools Used
 [Bullet Points - Remove this afterwards]
