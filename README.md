@@ -25,10 +25,9 @@ This can let the hacker:
 ✔️ Steal personal data (like usernames and passwords)
 ✔️ Change or delete important information
 ✔️ Even take control of the entire system
-
-In this letsdefend lab, I have access logs of a web application that was the victim of a SQL injection attack.
+.
 ### Ref 1: Apache Access Logs
-
+In this letsdefend lab, I have access logs of a web application that was the victim of a SQL injection attack.
 ![image](https://github.com/user-attachments/assets/e5a4d0a2-d91a-43c8-b0ba-9f0e7cf2dab6)
 
 ## Steps
