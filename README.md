@@ -16,13 +16,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 - Secure Coding Awareness – Gained knowledge of secure web development practices to prevent injection vulnerabilities.
 - Followed structured offensive security methodologies (e.g., OWASP Top 10, PTES) to identify and exploit SQLi vulnerabilities.
 
-### Tools Used
-[Bullet Points - Remove this afterwards]
-.
-
-
-
-What is a SQL Injection attack? 
+### What is a SQL injection attack?
 ![image](https://github.com/user-attachments/assets/ec6fde7a-d68d-4a69-9e1c-e35676c119a7)
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.
 This can let the hacker:
