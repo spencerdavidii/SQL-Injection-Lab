@@ -19,6 +19,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 ### What is a SQL injection attack?
 ![image](https://github.com/user-attachments/assets/ec6fde7a-d68d-4a69-9e1c-e35676c119a7)
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.
+ 
 This can let the hacker:
 ✔️ Steal personal data (like usernames and passwords)
 ✔️ Change or delete important information
