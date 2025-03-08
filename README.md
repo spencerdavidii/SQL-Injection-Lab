@@ -21,7 +21,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.
  
 ### How Does SQL injections work?
-SQL injections attacks occur when hackers take advantage of weak spots in websites that store and manage information. They sneak in harmful code through text boxes like login screens or search bars. If the website isn’t set up to block this, the database follows the hacker’s commands. This can lead to the hacker breaking into accounts without a password, change or delete important information, and take control fo the database system.
+SQL injections attacks occur when hackers take advantage of weak spots in websites that store and manage information. They sneak in harmful code through text boxes like login screens or search bars. If the website isn’t set up to block this, the database follows the hacker’s commands. This can lead to the hacker breaking into accounts without a password, change or delete important information, and take control of the database system.
 
 ### Ref 1: Apache Access Logs
 In this letsdefend lab, I have access logs of a web application that was the victim of a SQL injection attack.
