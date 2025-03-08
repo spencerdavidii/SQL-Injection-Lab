@@ -18,10 +18,20 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 
 ### Tools Used
 [Bullet Points - Remove this afterwards]
+.
 
-- Security Information and Event Management (SIEM) system for log ingestion and analysis.
-- Network analysis tools (such as Wireshark) for capturing and examining network traffic.
-- Telemetry generation tools to create realistic network traffic and attack scenarios.
+![image](https://github.com/user-attachments/assets/ec6fde7a-d68d-4a69-9e1c-e35676c119a7)
+
+What is a SQL Injection attack? 
+A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.
+This can let the hacker:
+✔️ Steal personal data (like usernames and passwords)
+✔️ Change or delete important information
+✔️ Even take control of the entire system
+
+In this letsdefend lab, I have access logs of a web application that was the victim of a SQL injection attack.
+Ref 1: Web Apachi logs
+![image](https://github.com/user-attachments/assets/e5a4d0a2-d91a-43c8-b0ba-9f0e7cf2dab6)
 
 ## Steps
 drag & drop screenshots here or use imgur and reference them using imgsrc
