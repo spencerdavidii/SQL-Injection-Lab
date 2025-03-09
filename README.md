@@ -29,7 +29,11 @@ In this letsdefend lab, Apache logs were the victim of a SQL injection attack. M
 
 My first step was inserting "=" command in the finder tool. This command allowed me to see changes in input values passed to the web application logs.
 
-I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering. Since = is used for comparisons in SQL queries, malicious values (%27, ' OR 1=1 --) can break or manipulate SQL logic. After using log analysis, I came to the conclusion this SQL injection sttack began March 01,2022:08:35:14 
+I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."
+In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.
+If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering. 
+Since = is used for comparisons in SQL queries, malicious values (%27, ' OR 1=1 --) can break or manipulate SQL logic. 
+After using log analysis, I came to the conclusion this SQL injection sttack began March 01,2022:08:35:14 
 
 ![SQL Injection finder highlighted ](https://github.com/user-attachments/assets/08c305b8-4a4e-4b34-86ce-b705bce1fe4b)
 
