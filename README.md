@@ -34,7 +34,8 @@ After detecting the malicious value 27%, I concluded the attack began March 1st,
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
 "The green highlights the attack date and the blue circles the input values signaling different requests"
 
-
+### LETSDEFEND LAB: What Is IP address of the attacker who performed the SQL injection attack? 
+Next, I figured out What is the IP address of the attacker who performed the SQL Injection attack?
 
 
 
