@@ -24,9 +24,9 @@ A SQL injection is a type of cyber attack where a hacker tricks a website into g
 SQL injections attacks occur when hackers take advantage of weak spots in websites that store and manage information. They sneak in harmful code through text boxes like login screens or search bars. If the website isn’t set up to block this, the database follows the hacker’s commands. This can lead to the hacker breaking into accounts without a password, change or delete important information, and take control of the database system.
 
 ### LETSDEFEND LAB 
-Now since I have elaborated on what is a SQL injection attack. I will now walk through the lab identifying when were the apachi access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. 
+Now since I have elaborated on what is a SQL injection attack. I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
- " Apache Access Logs screenshot" 
+ " APACHE ACCESS LOGS SCREENSHOT " 
  
 My first step was inserting "=" command in the finder tool. This command allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering.Since = is used for comparisons in SQL queries, malicious values (%27, ' OR 1=1 --) can break or manipulate SQL logic. After using log analysis, I came to the conclusion this SQL injection sttack began March 01,2022:08:35:14 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
