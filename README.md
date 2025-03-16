@@ -27,7 +27,7 @@ I will now walk through the lab identifying when were the Apache access logs inv
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
- **bold text** **"APACHE ACCESS LOGS SCREENSHOT**"
+ **"APACHE ACCESS LOGS SCREENSHOT**"
  
 My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering. Another clue is 
 Furthmore; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
