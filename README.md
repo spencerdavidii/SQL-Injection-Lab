@@ -23,22 +23,22 @@ I will now walk through the lab identifying when were the Apache access logs inv
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
- **The Apache Access Logs Invaded In The Virtual Machine**"
+ **The Apache Access Logs Invaded In The Virtual Machine**
  
 My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering.
 Additionally; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
 
 After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
-"**The Input Values Signaling Different Requests**" 
+**The Input Values Signaling Different Requests**
 
 ### LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack? 
 IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data.
 In the logs, multiple requests stem from 192.168.31.167.Seeing the same IP address repeatedly testing different SQLi payloads confirmed bad intentions. 
 Proved that this was not accidental but a deliberate SQL Injection attack.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/2ec21b6e-478b-4c8d-a451-6dc23f213e5d)
-"**The IP Address detected for the Initial Attack**"
-### LETSDEFEND LAB:Did the atacker execute the Sql injection attack succcesfully?
+**The IP Address detected for the Initial Attack**
+### LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack Succcesfully?
 The SQL Injection attack was likely successful because the attacker started with simple tests and then moved to more advanced commands. At 08:35:14, they tested by adding a single quote ('), which is a common way to check if a website is vulnerable. Later, at 08:37:10 and 08:38:16, they used more complex commands like "OR 1=1" and "UNION SELECT", which are often used to steal data from a database.![SQL Injection finder highlighted union commands](https://github.com/user-attachments/assets/b2071f5c-53cc-4540-b7a9-70d4c2778fe2)
 "**Complex Commands Utilized For The SQl injection Attack**
 
@@ -58,7 +58,7 @@ I listed a few status codes to remember while dealing with web attacks.
 403, 401, 405 → Attack was blocked (WAF or security settings)
  500, 502, 504 → Attack caused errors (possible SQLi or DoS attempt
 
-### LETSDEFEND LAB: The Type of SQl Injection attack that occurred
+### LETSDEFEND LAB: The Type of SQl Injection Attack That Occurred
 The SQl Injection that occurred in this lab was an in-band attack formeely known as classic.
 The hacker follows a step-by-step process to break into a website by manipulating the database through a web form. When the hacker starts at the 08:35:14 timestamp, They sends a request with Id=527&submit=submit to get a response. The hacker is checking if the website will give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack. 
 ![Identifying the attack screenshot ](https://github.com/user-attachments/assets/192239b5-befa-44be-bf4b-2424aaf56811)
