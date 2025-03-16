@@ -7,7 +7,6 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 
 
 ### Skills Learned
-[Bullet Points - Remove this afterwards]
 
 - Web Server Log Analysis – Reviewed Apache access/error logs to detect SQL injection attempts and other web-based attacks.
 - Incident Response & Forensics – Investigated SQLi attacks, documented findings, and provided remediation steps.
@@ -52,9 +51,9 @@ The SQL Injection attack was likely successful because the attacker started with
 **The Status Code Analyzed In The Attack**
 
 ### LETSDEFEND LAB: The importance of status codes while detecting web application attacks. 
-Also, knowing status codes helped anaylze the logs for SQL injection attacks. 
+Also, knowing status codes helped anaylze the logs for SQL injection attacks.In the infected logs, the HTTP request return to 200 continues to showcase. 
 ![SQL Injection finder highlighted http status codes](https://github.com/user-attachments/assets/31d3ce7c-b359-4368-a379-b6f20ab61795)
-In the infected logs, the HTTP request return to 200 continues to showcase.
+ **Status Code 200**
 This indicates that the SQL injection attack was successful, aiding the attacker in receiving useful information from the database. 
 By monitoring these responses, cybersecurity professionals can detect threats early, mitigate security risks, and prevent systems from being hacked.
 I listed a few status codes to remember while dealing with web attacks. 
