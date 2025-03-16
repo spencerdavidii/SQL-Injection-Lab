@@ -56,21 +56,33 @@ By monitoring these responses, cybersecurity professionals can detect threats ea
 I listed a few status codes to remember while dealing with web attacks. 
 200, 201, 204 → Attack may have worked (SQLi/XSS succeeded).
 403, 401, 405 → Attack was blocked (WAF or security settings)
- 500, 502, 504 → Attack caused errors (possible SQLi or DoS attempt
+ 500, 502, 504 → Attack caused errors (possible SQLi or DoS attempt)
 
 ### LETSDEFEND LAB: The Type of SQl Injection Attack That Occurred
 The SQl Injection that occurred in this lab was an in-band attack formeely known as classic.
-The hacker follows a step-by-step process to break into a website by manipulating the database through a web form. When the hacker starts at the 08:35:14 timestamp, They sends a request with Id=527&submit=submit to get a response. The hacker is checking if the website will give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack. 
+I realized the hacker followed a step-by-step process to break into the website by manipulating the database through a web form. When the hacker began at 08:35:14 timestamp, The attacker sent a request with "Id=527&submit=submit" to get a response. The hacker checked if the website would give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack. 
 ![Identifying the attack screenshot ](https://github.com/user-attachments/assets/192239b5-befa-44be-bf4b-2424aaf56811)
-
-The atacker starts his second sql injection attempt at 08:37:10. In this phase, the atacker now changes the request to id=%27+OR+1%3D1+--+&Submit=Submit. In the same input value, or 1=1 is added to trick the website into allowing access without a real password. 
+**08:35:14 Timestamp**
+The atacker started his second sql injection attempt at 08:37:10. In this sequence , the atacker changed the request to id=%27+OR+1%3D1+--+&Submit=Submit. In the same input value, or 1=1 was added to trick the website into allowing access without a real password. 
 ![SQL Injection attack escalation ](https://github.com/user-attachments/assets/11f2363c-7220-4a95-a69a-043a13eb579a)
+**08:37:10 Timestamp**
+
+Once the hacker received the password, they are digging deeper to learn more about the system at 08:38:16 timestamp. They completed this step by insertng "id=%27+OR+1%3D1+UNION+SELECT+null%2C+version%28%29+--+" into the web logs. 
+![SQL 0836 timestamp](https://github.com/user-attachments/assets/14c4e294-48b0-45da-b2ad-7f302a953031)
+The malicious input value helped them confirm the website is vulnerable which could lead to executing bigger attacks. 
+
+
 
 they test if the website is vulnerable by entering a single quote (') to see if it causes an error. If the website reacts strangely, it means the database doesn’t properly handle user input. Next, they use OR 1=1 to trick the login system into allowing access without a real password. Once inside, they use UNION SELECT to pull sensitive information, like database details and user accounts. Finally, they try getting admin privileges by checking who runs the database. This method is classic SQL Injection because it follows a structured approach, starting with testing, bypassing security, stealing data, and escalating privileges—all done by exploiting a website’s weak handling of database inputs.
 
 
  
+**Summmarization of SQL Injection Attacks**
+In this LetsDefend lab, I learned how attackers can trick a website into giving them access to hidden information by entering special commands in places like login forms. This helped me understand how important it is to properly secure websites so that they don’t accidentally expose sensitive data. I also gained hands-on experience in identifying weak points in a system and how hackers might try to take advantage of them. Most importantly, I would suggest using safer security tools to protect database or web application logs. 
 
+**Safety Measures to Prevent SQL Injections Attacks**
+For instance, I would have impletmented a web application firewall (WAF) to protect the Apache web application logs. A web application firewall acts as a security shield between users and a web application. WAF can identify and block sql injection attempts before they invade the web application. This helps add another layer of protection. 
+Additionally, I would have selected implementing input validation. Essentially, input validation is like a security guard for a web application. Input validation checks everything users type into a form. This includes usernames, passwords, and  emails—to make sure it's correct and safe before letting it through. This helps stop hackers from sneaking in harmful commands, keeps the system from breaking, and makes sure the data stays clean and accurate. By using input validation, websites can protect user information, prevent errors, and make the experience smoother for everyone.
 
 
 
