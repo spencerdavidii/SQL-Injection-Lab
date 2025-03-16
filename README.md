@@ -33,7 +33,7 @@ Furthmore; apostrophes ('), dashes (-), and special characters are malicious val
 
 After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
-"**The Input Values signaling Different Requests**" 
+"**The Input Values Signaling Different Requests**" 
 
 ### LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack? 
 IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data.
