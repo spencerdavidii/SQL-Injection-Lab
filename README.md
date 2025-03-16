@@ -21,13 +21,18 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
 
 A Common real world example is logging into a facebook account. A user is instructed to enter their username and password on the facebook login page. 
-![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
-**Logging into Facebook Account**
 
+
+![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
+
+**Logging into Facebook Account**
 
  Across, Facebook will use this username and password information to create an SQL query like the one below:
 
+
 **A SQL Statement**
+
+
 SELECT * FROM users WHERE username = 'USERNAME’ AND password = 'USER_PASSWORD'
 
 The meaning of this SQL query is "Bring me all the information about the user from the user's table whose name is USERNAME and whose password is USER_PASSWORD". If the web application finds a matching user, it will authenticate the user, if it cannot find a user after executing the query, the login will fail.
