@@ -14,7 +14,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 - Secure Coding Awareness – Gained knowledge of secure web development practices to prevent injection vulnerabilities.
 - Followed structured offensive security methodologies (e.g., OWASP Top 10, PTES) to identify and exploit SQLi vulnerabilities.
 
-### How Does SQL injections attack work?
+### How Does SQL injections Attacks Work?
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
 ![image](https://github.com/user-attachments/assets/ec6fde7a-d68d-4a69-9e1c-e35676c119a7)
 
@@ -25,8 +25,8 @@ I will now walk through the lab identifying when were the Apache access logs inv
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
  **The Apache Access Logs Invaded In The Virtual Machine**"
  
-My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering. Another clue is 
-Furthmore; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
+My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering.
+Additionally; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
 
 After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
