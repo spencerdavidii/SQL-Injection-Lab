@@ -37,17 +37,17 @@ IP addresses play an important role in cyberattacks, as attackers use them to fi
 In the logs, multiple requests stem from 192.168.31.167.Seeing the same IP address repeatedly testing different SQLi payloads confirmed bad intentions. 
 Proved that this was not accidental but a deliberate SQL Injection attack.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/2ec21b6e-478b-4c8d-a451-6dc23f213e5d)
-**The IP Address detected for the Initial Attack**
+**The IP Address detected For The Initial Attack**
 ### LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack Succcesfully?
 The SQL Injection attack was likely successful because the attacker started with simple tests and then moved to more advanced commands. At 08:35:14, they tested by adding a single quote ('), which is a common way to check if a website is vulnerable. Later, at 08:37:10 and 08:38:16, they used more complex commands like "OR 1=1" and "UNION SELECT", which are often used to steal data from a database.![SQL Injection finder highlighted union commands](https://github.com/user-attachments/assets/b2071f5c-53cc-4540-b7a9-70d4c2778fe2)
-"**Complex Commands Utilized For The SQl injection Attack**
+**Complex Commands Utilized For The SQl injection Attack**
 
 
  The server responded with 200 status codes, meaning it processed the request without an error, suggesting that the attack worked. However, if the attacker had received an error (like 500 or 403), it would mean the attack failed. Since the attacker kept trying different commands, it looks like they were able to get some useful information from the database.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/697e01f9-e108-42f9-9ecf-cd08698522d8)
 **The Status Code Analyzed In The Attack**
 
-### LETSDEFEND LAB: The importance of status codes while detecting web application attacks. 
+### LETSDEFEND LAB: The Importance Of Status Codes While Detecting Web Application Attacks. 
 Also, knowing status codes helped anaylze the logs for SQL injection attacks.In the infected logs, the HTTP request return to 200 continues to showcase. 
 ![SQL Injection finder highlighted http status codes](https://github.com/user-attachments/assets/31d3ce7c-b359-4368-a379-b6f20ab61795)
  **Status Code 200**
@@ -69,6 +69,7 @@ The atacker started his second sql injection attempt at 08:37:10. In this sequen
 
 Once the hacker received the password, they are digging deeper to learn more about the system at 08:38:16 timestamp. They completed this step by insertng "id=%27+OR+1%3D1+UNION+SELECT+null%2C+version%28%29+--+" into the web logs. 
 ![SQL 0836 timestamp](https://github.com/user-attachments/assets/14c4e294-48b0-45da-b2ad-7f302a953031)
+**08:38:16 Timestamp**
 The malicious input value helped them confirm the website is vulnerable which could lead to executing bigger attacks. 
 
 
@@ -78,9 +79,11 @@ they test if the website is vulnerable by entering a single quote (') to see if 
 
  
 **Summmarization of SQL Injection Attacks**
+
 In this LetsDefend lab, I learned how attackers can trick a website into giving them access to hidden information by entering special commands in places like login forms. This helped me understand how important it is to properly secure websites so that they don’t accidentally expose sensitive data. I also gained hands-on experience in identifying weak points in a system and how hackers might try to take advantage of them. Most importantly, I would suggest using safer security tools to protect database or web application logs. 
 
 **Safety Measures to Prevent SQL Injections Attacks**
+
 For instance, I would have impletmented a web application firewall (WAF) to protect the Apache web application logs. A web application firewall acts as a security shield between users and a web application. WAF can identify and block sql injection attempts before they invade the web application. This helps add another layer of protection. 
 Additionally, I would have selected implementing input validation. Essentially, input validation is like a security guard for a web application. Input validation checks everything users type into a form. This includes usernames, passwords, and  emails—to make sure it's correct and safe before letting it through. This helps stop hackers from sneaking in harmful commands, keeps the system from breaking, and makes sure the data stays clean and accurate. By using input validation, websites can protect user information, prevent errors, and make the experience smoother for everyone.
 
