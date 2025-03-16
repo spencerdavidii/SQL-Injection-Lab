@@ -13,7 +13,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 - Mitigation & Defense Strategie- Implentmented input validation to prevent SQL attacks in the future. 
 - Secure Coding Awareness – Gained knowledge of secure web development practices to prevent injection vulnerabilities.
 - Followed structured offensive security methodologies (e.g., OWASP Top 10, PTES) to identify and exploit SQLi vulnerabilities.
-###v Objectives 
+### Objectives 
 - Understand the fundamentals of SQL injection.
 - Perform ethical SQL injection attacks in a controlled environment.
 - Learn best practices for securing web applications.
