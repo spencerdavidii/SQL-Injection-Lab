@@ -1,8 +1,7 @@
 # SQL-Injection-Lab
 
 
-## Objective
-[Brief Objective - Remove this afterwards]
+
 
 The Sql injection lab from LetsDefend helped me enhance my practical skills in identifying and mitigating SQL injection attacks within web applications. For this lab,I searched for vulnerabiltiites within web apachi logs.I discovered the exploitation phase of when the SQL injection attack occured,identified the type of SQL injection attack, and uncovered the IP address of the attacker who performed the attack. This hands on experience was designed to deepen my understanding of web application security. 
 
@@ -24,7 +23,7 @@ A SQL injection is a type of cyber attack where a hacker tricks a website into g
 SQL injections attacks occur when hackers take advantage of weak spots in websites that store and manage information. They sneak in harmful code through text boxes like login screens or search bars. If the website isn’t set up to block this, the database follows the hacker’s commands. This can lead to the hacker breaking into accounts without a password, change or delete important information, and take control of the database system.
 
 ### LETSDEFEND LAB 
-Now since I have elaborated on what is a SQL injection attack. I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
+I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
@@ -37,10 +36,11 @@ After detecting the malicious value 27%, I concluded the attack began March 1st,
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
 "The green highlights the attack date and the blue circles the input values signaling different requests"
 
-### LETSDEFEND LAB: Which IP address was used for the SQL injection attack? 
+### LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack? 
 IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/2ec21b6e-478b-4c8d-a451-6dc23f213e5d)
-
+"Highlighted IP Address"
+ 
 In the logs, multiple requests stem from 192.168.31.167.Seeing the same IP address repeatedly testing different SQLi payloads confirmed bad intentions. 
 Proved that this was not accidental but a deliberate SQL Injection attack.
 
