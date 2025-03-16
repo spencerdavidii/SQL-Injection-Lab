@@ -27,14 +27,14 @@ I will now walk through the lab identifying when were the Apache access logs inv
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
- **"Apache Access Logs In The Virtual Machine**"
+ **The"Apache Access Logs Invaded In The Virtual Machine**"
  
 My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "id=2&Submit=Submit and "id=%27&Submit=Submit" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering. Another clue is 
 Furthmore; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
 
 After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
-"The green highlights the attack date and the blue circles the input values signaling different requests"
+"**The Input Values signaling Different Requests**" 
 
 ### LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack? 
 IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data.
