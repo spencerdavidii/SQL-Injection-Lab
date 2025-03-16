@@ -21,17 +21,38 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
 ![image](https://github.com/user-attachments/assets/ec6fde7a-d68d-4a69-9e1c-e35676c119a7)
 
+A Common real world example is logging into a facebook account. A user is instructed to enter their username and password on the facebook login page. 
+![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
+**Logging into Facebook Account**
+
+
+ Across, Facebook will use this username and password information to create an SQL query like the one below:
+
+**A SQL Statement**
+SELECT * FROM users WHERE username = 'USERNAME’ AND password = 'USER_PASSWORD'
+
+The meaning of this SQL query is "Bring me all the information about the user from the user's table whose name is USERNAME and whose password is USER_PASSWORD". If the web application finds a matching user, it will authenticate the user, if it cannot find a user after executing the query, the login will fail.
+
+In this scenario, the username is "john" and your password is "supersecretpassword". When you enter this information and click the 'Login' button, the SQL query shown below will be queried and you will be able to log in because a match was found after the SQL query.
+
+SELECT * FROM users WHERE username = ‘john’ AND password = 'supersecretpassword'
+
+So what if we do not use this system as it was designed and we put an apostrophe (') in the username field? The SQL query will look like this and the error will be excluded from the database because the query was incorrect.
+
+SELECT * FROM users WHERE username = ‘john’’ AND password = 'supersecretpassword'
 ### LETSDEFEND LAB: Identify The Initial Start Of The Attack
-I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
+I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and so
+
+me of these requests contain SQL Injection attempts.
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
  **The Apache Access Logs Invaded In The Virtual Machine**
  
-My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values "*id=2&Submit=Submit*  and "*id=%27&Submit=Submit*" displayed two different requests."In the input value "id=%27&Submit=Submit"; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27),this can signal tampering.
+My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values *id=2&Submit=Submit*  and  *id=%27&Submit=Submit* displayed two different requests."In the input value *id=%27&Submit=Submit*; *27%* represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (*id=2*) with a malicious request (*id=%27*), this can signal tampering.
 Additionally; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks. 
 
-After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
+After detecting the malicious value *27%*, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. 
 ![SQL Injection finder highlighted Pinpoint ](https://github.com/user-attachments/assets/02b7726e-6c99-4f97-b5ac-c610b3e0fb62)
 **The Input Values Signaling Different Requests**
 
