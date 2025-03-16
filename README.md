@@ -49,6 +49,7 @@ The SQL Injection attack was likely successful because the attacker started with
 
  The server responded with 200 status codes, meaning it processed the request without an error, suggesting that the attack worked. However, if the attacker had received an error (like 500 or 403), it would mean the attack failed. Since the attacker kept trying different commands, it looks like they were able to get some useful information from the database.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/697e01f9-e108-42f9-9ecf-cd08698522d8)
+**The Status Code Analyzed In The Attack**
 
 ### LETSDEFEND LAB: The importance of status codes while detecting web application attacks. 
 Also, knowing status codes helped anaylze the logs for SQL injection attacks. 
