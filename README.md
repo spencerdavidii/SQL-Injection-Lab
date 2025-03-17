@@ -20,7 +20,7 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 ### How Does SQL injections Attacks Work?
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
 
-**Logging into Facebook Account**
+**Logging into a Facebook Account**
 
 
 A common real world example is logging into a facebook account. A user is instructed to enter their username and password on the facebook login page. 
