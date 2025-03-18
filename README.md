@@ -29,7 +29,7 @@ A common real world example is logging into a facebook account. A user is instru
 ![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
 
 
- Across, Facebook will use this username and password information to create an SQL query like the one below:
+ On the other side, Facebook will use this username and password information to create an SQL query like the one below:
 
 
 **A SQL Statement**
