@@ -43,6 +43,7 @@ The meaning of this SQL query is "Bring me all the information about the user fr
 In this scenario, the username is "usercontrol4.com" and your password is "Allaccess!". 
 
 ![image](https://github.com/user-attachments/assets/c6f5a57c-dc63-4eda-96f9-d00eb7a7843a)
+
 **SQL Query Example for Facebook**
 
  When you enter this information and click the 'Login' button, the SQL query shown below will be queried and you will be able to log in because a match was found after the SQL query.
