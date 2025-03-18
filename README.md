@@ -23,29 +23,37 @@ A SQL injection is a type of cyber attack where a hacker tricks a website into g
 **Logging into a Facebook Account**
 
 
-A common real world example is logging into a facebook account. A user is instructed to enter their username and password on the facebook login page. 
+A common real world example is logging into a facebook account. A user is instructed to enter their email and password on the facebook login page. 
 
 
 ![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
 
 
- On the other side, Facebook will use this username and password information to create an SQL query like the one below:
+ On the other side, Facebook will use this email and password information to create an SQL query like the one below:
 
 
 **A SQL Statement**
 
 
-SELECT * FROM users WHERE username = 'USERNAME’ AND password = 'USER_PASSWORD'
+SELECT * FROM users WHERE username = 'Email’ AND password = 'USER_PASSWORD'
 
 The meaning of this SQL query is "Bring me all the information about the user from the user's table whose name is USERNAME and whose password is USER_PASSWORD". If the web application finds a matching user, it will authenticate the user, if it cannot find a user after executing the query, the login will fail.
 
-In this scenario, the username is "john" and your password is "supersecretpassword". When you enter this information and click the 'Login' button, the SQL query shown below will be queried and you will be able to log in because a match was found after the SQL query.
 
-SELECT * FROM users WHERE username = ‘john’ AND password = 'supersecretpassword'
+In this scenario, the username is "usercontrol4.com" and your password is "Allaccess!". 
+
+![image](https://github.com/user-attachments/assets/c6f5a57c-dc63-4eda-96f9-d00eb7a7843a)
+**SQL Query Example for Facebook**
+
+ When you enter this information and click the 'Login' button, the SQL query shown below will be queried and you will be able to log in because a match was found after the SQL query.
+
+SELECT * FROM users WHERE username = ‘usercontrol4@gmail.com’ AND password = 'Allaccesss!'
 
 So what if we do not use this system as it was designed and we put an apostrophe (') in the username field? The SQL query will look like this and the error will be excluded from the database because the query was incorrect.
 
-SELECT * FROM users WHERE username = ‘john’’ AND password = 'supersecretpassword'
+![image](https://github.com/user-attachments/assets/f6250b27-dbd3-4aeb-8060-67dec51822a7)
+
+
 ### LETSDEFEND LAB: Identify The Initial Start Of The Attack
 I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and so
 
