@@ -91,6 +91,7 @@ The web application responded with 200 status codes, meaning it processed the re
 Also, knowing status codes helped anaylze the logs for SQL injection attacks.In the infected logs, the HTTP request return to 200 continues to showcase. 
 ![SQL Injection finder highlighted http status codes](https://github.com/user-attachments/assets/31d3ce7c-b359-4368-a379-b6f20ab61795)
  **Status Code 200**
+ 
 This indicates that the SQL injection attack was successful, aiding the attacker in receiving useful information from the database. 
 By monitoring these responses, cybersecurity professionals can detect threats early, mitigate security risks, and prevent systems from being hacked.
 I listed a few status codes to remember while dealing with web attacks. 
