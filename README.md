@@ -12,10 +12,8 @@ The Sql injection lab from LetsDefend helped me enhance my practical skills in i
 - Incident Response & Forensics – Investigated SQLi attacks, documented findings, and provided remediation steps.
 - Secure Coding Awareness – Gained knowledge of secure web development practices to prevent injection vulnerabilities.
 - Followed structured offensive security methodologies (e.g., OWASP Top 10, PTES) to identify and exploit SQLi vulnerabilities.
-### Objectives 
-- Understand the fundamentals of SQL injection.
-- Perform ethical SQL injection attacks in a controlled environment.
-- Learn best practices for securing web applications.
+
+
 
 ### How Does SQL injections Attacks Work?
 A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
@@ -29,7 +27,7 @@ A common real world example is logging into a facebook account. A user is instru
 ![image](https://github.com/user-attachments/assets/499068a1-b128-4e57-ad4e-1e275772848e)
 
 
- On the other side, Facebook will use this email and password information to create an SQL query like the one below:
+On the other side, Facebook will use this email and password information to create an SQL query like the one below:
 
 
 **A SQL Statement**
