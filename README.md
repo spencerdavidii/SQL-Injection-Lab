@@ -33,12 +33,12 @@ On the other side, Facebook will use this email and password information to crea
 **A SQL Statement**
 
 
-SELECT * FROM users WHERE username = 'Email’ AND password = 'USER_PASSWORD'
+SELECT * FROM users WHERE username = 'Email’ AND password = 'user_password'
 
 The meaning of this SQL query is "Bring me all the information about the user from the user's table whose name is USERNAME and whose password is USER_PASSWORD". If the web application finds a matching user, it will authenticate the user, if it cannot find a user after executing the query, the login will fail.
 
 
-In this scenario, the username is "usercontrol4.com" and your password is "Allaccess!". 
+In this scenario, the username is "usercontrol4@gmail.com" and your password is "Allaccess!". 
 
 ![image](https://github.com/user-attachments/assets/c6f5a57c-dc63-4eda-96f9-d00eb7a7843a)
 
@@ -54,9 +54,7 @@ So what if we do not use this system as it was designed and we put an apostrophe
 
 
 ### LETSDEFEND LAB: Identify The Initial Start Of The Attack
-I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and so
-
-me of these requests contain SQL Injection attempts.
+I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
 
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
