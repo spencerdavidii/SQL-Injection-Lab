@@ -54,8 +54,8 @@ So what if we do not use this system as it was designed and we put an apostrophe
 
 
 ### LETSDEFEND LAB: Identify The Initial Start Of The Attack
-I will now walk through the lab identifying when were the Apache access logs invaded. I utilized Letsdefend sandbox virtual machine to complete this process as well. The screenshot belows shows log file from a web server, showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
 
+I will now walk through the lab, identifying when the Apache access logs were invaded. I also utilized the Letsdefend sandbox virtual machine to complete this process. The screenshot below shows a log file from a web server showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
 
 ![SQL Injection finder](https://github.com/user-attachments/assets/c676df15-14ac-4326-8e9f-a78cbcce972e)
  **The Apache Access Logs Invaded In The Virtual Machine**
@@ -70,13 +70,14 @@ After detecting the malicious value *27%*, I concluded the attack began March 1s
 ### LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack? 
 IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data.
 In the logs, multiple requests stem from 192.168.31.167.Seeing the same IP address repeatedly testing different SQLi payloads confirmed bad intentions. 
-Proved that this was not accidental but a deliberate SQL Injection attack.
+This proved the  process wasnt  accidental but a deliberate SQL Injection attack.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/2ec21b6e-478b-4c8d-a451-6dc23f213e5d)
 **The IP Address detected For The Initial Attack**
+
+
 ### LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack Succcesfully?
 The SQL Injection attack was likely successful because the attacker started with simple tests and then moved to more advanced commands. At 08:35:14, they tested by adding a single quote ('), which is a common way to check if a website is vulnerable. Later, at 08:37:10 and 08:38:16, they used more complex commands like "OR 1=1" and "UNION SELECT", which are often used to steal data from a database.![SQL Injection finder highlighted union commands](https://github.com/user-attachments/assets/b2071f5c-53cc-4540-b7a9-70d4c2778fe2)
 **Complex Commands Utilized For The SQl injection Attack**
-
 
  The server responded with 200 status codes, meaning it processed the request without an error, suggesting that the attack worked. However, if the attacker had received an error (like 500 or 403), it would mean the attack failed. Since the attacker kept trying different commands, it looks like they were able to get some useful information from the database.
 ![SQL Injection finder highlighted IP address](https://github.com/user-attachments/assets/697e01f9-e108-42f9-9ecf-cd08698522d8)
