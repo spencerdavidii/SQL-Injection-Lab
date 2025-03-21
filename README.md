@@ -48,7 +48,7 @@ In this scenario, the username is "usercontrol4@gmail.com" and your password is 
 
 SELECT * FROM users WHERE username = ‘usercontrol4@gmail.com’ AND password = 'Allaccesss!'
 
-So what if we do not use this system as it was designed and we put an apostrophe (') in the username field? The SQL query will look like this and the error will be excluded from the database because the query was incorrect.
+So, what if we do not use this system as it was designed and we put an apostrophe (') in the username field? The SQL query will look like this and the error will be excluded from the database because the query was incorrect.
 
 ![image](https://github.com/user-attachments/assets/f6250b27-dbd3-4aeb-8060-67dec51822a7)
 
