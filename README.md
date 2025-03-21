@@ -102,11 +102,17 @@ I listed a few status codes to remember while dealing with web attacks.
 ### LETSDEFEND LAB: The Type of SQl Injection Attack That Occurred
 The SQl Injection that occurred in this lab was an in-band attack formeely known as classic.
 I realized the hacker followed a step-by-step process to break into the website by manipulating the database through a web form. When the hacker began at 08:35:14 timestamp, The attacker sent a request with "Id=527&submit=submit" to get a response. The hacker checked if the website would give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack. 
+
+
 ![Identifying the attack screenshot ](https://github.com/user-attachments/assets/192239b5-befa-44be-bf4b-2424aaf56811)
 **08:35:14 Timestamp**
-The atacker started his second sql injection attempt at 08:37:10. In this sequence , the atacker changed the request to id=%27+OR+1%3D1+--+&Submit=Submit. In the same input value, or 1=1 was added to trick the website into allowing access without a real password. 
+
+
+The atacker started his second sql injection attempt at 08:37:10. In this sequence , the atacker changed the request to id=%27+OR+1%3D1+--+&Submit=Submit. In the same input value, or 1=1 was added to trick the website into allowing access without a real password.
+
 ![SQL Injection attack escalation ](https://github.com/user-attachments/assets/11f2363c-7220-4a95-a69a-043a13eb579a)
 **08:37:10 Timestamp**
+
 
 Once the hacker received the password, they are digging deeper to learn more about the system at 08:38:16 timestamp. They completed this step by insertng "id=%27+OR+1%3D1+UNION+SELECT+null%2C+version%28%29+--+"
 into the web logs, the malicious input value helped them confirm the website is vulnerable which could lead to executing bigger attacks. 
