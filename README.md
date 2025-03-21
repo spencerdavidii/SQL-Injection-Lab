@@ -95,9 +95,9 @@ Also, knowing status codes helped anaylze the logs for SQL injection attacks.In 
 This indicates that the SQL injection attack was successful, aiding the attacker in receiving useful information from the database. 
 By monitoring these responses, cybersecurity professionals can detect threats early, mitigate security risks, and prevent systems from being hacked.
 I listed a few status codes to remember while dealing with web attacks. 
-200, 201, 204 → Attack may have worked (SQLi/XSS succeeded).
-403, 401, 405 → Attack was blocked (WAF or security settings)
- 500, 502, 504 → Attack caused errors (possible SQLi or DoS attempt)
+200, 201, 204 → attack may have worked (SQLi/XSS succeeded).
+403, 401, 405 → attack was blocked (WAF or security settings)
+ 500, 502, 504 → attack caused errors (possible SQLi or DoS attempt)
 
 ### LETSDEFEND LAB: The Type of SQl Injection Attack That Occurred
 The SQl Injection that occurred in this lab was an in-band attack formeely known as classic.
