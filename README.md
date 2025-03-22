@@ -121,6 +121,7 @@ into the web logs, the malicious input value helped them confirm the website is 
 
 
 **Summmarization of SQL Injection Attacks**
+
 In this LetsDefend lab, I learned how attackers can trick a website into giving them access to hidden information by entering special commands in places like login forms. This helped me understand how important it is to properly secure websites so that they don’t accidentally expose sensitive data. I also gained hands-on experience in identifying weak points in a system and how hackers might try to take advantage of them. Most importantly, I would suggest using safer security tools to protect database or web application logs. 
 
 **Safety Measures to Prevent SQL Injections Attacks**
