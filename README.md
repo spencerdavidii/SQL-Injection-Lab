@@ -75,7 +75,7 @@ This proved the process wasnt  accidental but a deliberate SQL Injection attack.
 **The IP Address detected For The Initial Attack**
 
 
-### LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack Succcesfully?
+### LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack?
 The SQL Injection attack was likely successful because the attacker started with simple tests and then moved to more advanced commands. At 08:35:14, they tested by adding a single quote ('), which is a common way to check if a website is vulnerable. Later, at 08:37:10 and 08:38:16, they used more complex commands like "OR 1=1" and "UNION SELECT", which are often used to steal data from a database.
 
 .![SQL Injection finder highlighted union commands](https://github.com/user-attachments/assets/b2071f5c-53cc-4540-b7a9-70d4c2778fe2)
@@ -99,7 +99,7 @@ I listed a few status codes to remember while dealing with web attacks.
 403, 401, 405 → attack was blocked (WAF or security settings)
  500, 502, 504 → attack caused errors (possible SQLi or DoS attempt)
 
-### LETSDEFEND LAB: The Type of SQl Injection Attack That Occurred
+### LETSDEFEND LAB: Which SQl Injection Attack Occured in The Web logs?
 The SQl Injection that occurred in this lab was an in-band attack formeely known as classic.
 I realized the hacker followed a step-by-step process to break into the website by manipulating the database through a web form. When the hacker began at 08:35:14 timestamp, The attacker sent a request with "Id=527&submit=submit" to get a response. The hacker checked if the website would give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack. 
 
