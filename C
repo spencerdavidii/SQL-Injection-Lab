@@ -1,0 +1,103 @@
+How Does SQL injections Attacks Work?
+A SQL injection is a type of cyber attack where a hacker tricks a website into giving them unauthorized access to its database.By sneaking in special commands where the site expects normal text, they can steal, change, or even erase important data. This happens when the website doesn’t properly check what users type in, making it easier for hackers to break in.
+
+Logging into a Facebook Account
+
+A common real world example is logging into a facebook account. A user is instructed to enter their email and password on the facebook login page.
+
+image
+
+On the other side, Facebook will use this email and password information to create an SQL query like the one below:
+
+A SQL Statement
+
+SELECT * FROM users WHERE username = 'Email’ AND password = 'user_password'
+
+The meaning of this SQL query is "Bring me all the information about the user from the user's table whose name is USERNAME and whose password is USER_PASSWORD". If the web application finds a matching user, it will authenticate the user, if it cannot find a user after executing the query, the login will fail.
+
+In this scenario, the username is "usercontrol4@gmail.com" and your password is "Allaccess!".
+
+image
+
+SQL Query Example for Facebook
+
+When you enter this information and click the 'Login' button, the SQL query shown below will be queried and you will be able to log in because a match was found after the SQL query.
+
+SELECT * FROM users WHERE username = ‘usercontrol4@gmail.com’ AND password = 'Allaccesss!'
+
+So, what if we do not use this system as it was designed and we put an apostrophe (') in the username field? The SQL query will look like this and the error will be excluded from the database because the query was incorrect.
+
+image
+
+LETSDEFEND LAB: Identify The Initial Start Of The Attack
+I will now walk through the lab, identifying when the Apache access logs were invaded. I also utilized the Letsdefend sandbox virtual machine to complete this process. The screenshot below shows a log file from a web server showing requests made by an attacker. Each line represents a request to a webpage, and some of these requests contain SQL Injection attempts.
+
+SQL Injection finder The Apache Access Logs Invaded In The Virtual Machine
+
+My first step was inserting = command in the finder tool. This operator is used for comparisons in SQl queries which allowed me to see changes in input values passed to the web application logs.I analyzed the input values id=2&Submit=Submit and id=%27&Submit=Submit displayed two different requests."In the input value id=%27&Submit=Submit; 27% represents a URL-encoded single quote ('), a known SQL Injection attack indicator.If an attacker modifies the input value to compare a normal request (id=2) with a malicious request (id=%27), this can signal tampering. Additionally; apostrophes ('), dashes (-), and special characters are malicious values commonly used in SQL attacks.
+
+After detecting the malicious value 27%, I concluded the attack began March 1st, 2022 08:35:14 on log 147 as seen in the screenshot below.Although, the = operator was found on logs 145 and 146 as well. Their input values were normal SQL queries, so that is why the attack didnt start there. SQL Injection finder highlighted Pinpoint  The Input Values Signaling Different Requests
+
+LETSDEFEND LAB: Which IP address was utilized for the SQL injection attack?
+IP addresses play an important role in cyberattacks, as attackers use them to find targets and intentionally change or steal data. In the logs, multiple requests stem from 192.168.31.167.Once I saw the same IP Address repeatdely testing different SQL payloads, I understood it confirmed bad intentions. Seeing the same IP address repeatedly testing different SQLi payloads confirmed bad intentions. This proved the process wasnt accidental but a deliberate SQL Injection attack. SQL Injection finder highlighted IP address The IP Address detected For The Initial Attack
+
+LETSDEFEND LAB:Did The Attacker Execute The SQL Injection Attack?
+The SQL Injection attack was likely successful because the attacker started with simple tests and then moved to more advanced commands. At 08:35:14, they tested by adding a single quote ('), which is a common way to check if a website is vulnerable. Later, at 08:37:10 and 08:38:16, they used more complex commands like "OR 1=1" and "UNION SELECT", which are often used to steal data from a database.
+
+.SQL Injection finder highlighted union commands Complex Commands Utilized For The SQl injection Attack
+
+The web application responded with 200 status codes, meaning it processed the request without an error, suggesting that the attack worked. However, if the attacker had received an error (like 500 or 403), it would mean the attack failed. Since the attacker kept trying different commands, it looks like they were able to get some useful information from the database.
+
+SQL Injection finder highlighted IP address The Status Code Analyzed In The Attack
+
+LETSDEFEND LAB: The Importance Of Status Codes While Detecting Web Application Attacks.
+Also, knowing status codes helped anaylze the logs for SQL injection attacks.In the infected logs, the HTTP request return to 200 continues to showcase. SQL Injection finder highlighted http status codes Status Code 200
+
+This indicates that the SQL injection attack was successful, aiding the attacker in receiving useful information from the database. By monitoring these responses, cybersecurity professionals can detect threats early, mitigate security risks, and prevent systems from being hacked. I listed a few status codes to remember while dealing with web attacks. 200, 201, 204 → attack may have worked (SQLi/XSS succeeded). 403, 401, 405 → attack was blocked (WAF or security settings) 500, 502, 504 → attack caused errors (possible SQLi or DoS attempt)
+
+LETSDEFEND LAB: Which SQl Injection Attack Occured in The Web Logs?
+The SQl Injection that occurred in this lab was an in-band attack formeely known as classic. I realized the hacker followed a step-by-step process to break into the website by manipulating the database through a web form. When the hacker began at 08:35:14 timestamp, The attacker sent a request with "Id=527&submit=submit" to get a response. The hacker checked if the website would give an error. Since the 200 error code occurred, The attacker knows the website is vulernable to attack.
+
+Identifying the attack screenshot  08:35:14 Timestamp
+
+The atacker started his second sql injection attempt at 08:37:10. In this sequence , the atacker changed the request to id=%27+OR+1%3D1+--+&Submit=Submit. In the same input value, or 1=1 was added to trick the website into allowing access without a real password.
+
+SQL Injection attack escalation  08:37:10 Timestamp
+
+Once the hacker received the password, they are digging deeper to learn more about the system at 08:38:16 timestamp. They completed this step by insertng "id=%27+OR+1%3D1+UNION+SELECT+null%2C+version%28%29+--+" into the web logs, the malicious input value helped them confirm the website is vulnerable which could lead to executing bigger attacks. SQL 0836 timestamp 08:38:16 Timestamp
+
+Summmarization of SQL Injection Attacks
+
+In this LetsDefend lab, I learned how attackers can trick a website into giving them access to hidden information by entering special commands in places like login forms. This helped me understand how important it is to properly secure websites so that they don’t accidentally expose sensitive data. I also gained hands-on experience in identifying weak points in a system and how hackers might try to take advantage of them. Most importantly, I would suggest using safer security tools to protect database or web application logs.
+
+Safety Measures to Prevent SQL Injections Attacks
+
+For instance, I would have impletmented a web application firewall (WAF) to protect the Apache web application logs. A web application firewall acts as a security shield between users and a web application. WAF can identify and block sql injection attempts before they invade the web application. This helps add another layer of protection. Additionally, I would have selected implementing input validation. Essentially, input validation is like a security guard for a web application. Input validation checks everything users type into a form. This includes usernames, passwords, and emails—to make sure it's correct and safe before letting it through. This helps stop hackers from sneaking in harmful commands, keeps the system from breaking, and makes sure the data stays clean and accurate. By using input validation, websites can protect user information, prevent errors, and make the experience smoother for everyone.
+
+About
+No description, website, or topics provided.
+Resources
+ Readme
+ Activity
+Stars
+ 1 star
+Watchers
+ 1 watching
+Forks
+ 0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
